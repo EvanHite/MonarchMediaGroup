@@ -6,7 +6,7 @@
   <title>Monarch Media Group</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Newsreader:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -40,10 +40,21 @@
       </div>
     </nav>
     <div class="hero" id="top">
-      <div class="hero__content" id="mission">
-        <p class="hero__eyebrow">Monarch Media Group</p>
-        <h1>Unmask the Media Madness</h1>
-        <a class="button button--primary" href="#services">Explore our services</a>
+      <div class="hero__inner">
+        <div class="hero__content" id="mission">
+          <p class="hero__eyebrow">Monarch Media Group</p>
+          <h1>Unmask the Media Madness</h1>
+          <p class="hero__description">Magnetic Instagram storytelling for bold beauty brands ready to glow up their digital presence.</p>
+          <a class="button button--primary" href="#services">Explore our services</a>
+        </div>
+        <div class="hero__media" aria-hidden="true">
+          <div class="hero__phone hero__phone--primary">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="" />
+          </div>
+          <div class="hero__phone hero__phone--secondary">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="" />
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -56,37 +67,39 @@
       <div class="services__list">
         <article class="service service--active">
           <button class="service__trigger" aria-expanded="true">
-            <span class="service__title">Basic Service</span>
+            <span class="service__title">Basic</span>
             <span class="service__icon" aria-hidden="true">−</span>
           </button>
           <div class="service__content">
-            <p>We lay the groundwork for your Instagram to shine.</p>
+            <p>Lay the groundwork for your Instagram to shine. We handle your posts and stories, craft captions that connect, and make sure your brand always looks professional and engaging.</p>
           </div>
         </article>
         <article class="service">
           <button class="service__trigger" aria-expanded="false">
-            <span class="service__title">Intermediate Service</span>
+            <span class="service__title">Signature</span>
             <span class="service__icon" aria-hidden="true">+</span>
           </button>
           <div class="service__content" hidden>
-            <p>Step up with reels, strategic engagement, and a consistent feed.</p>
+            <p>Take your Instagram to the next level. With added reels, strategic engagement, and a consistent, polished feed, we help your brand grow organically and stand out in your community.</p>
           </div>
         </article>
         <article class="service">
           <button class="service__trigger" aria-expanded="false">
-            <span class="service__title">Advanced Service</span>
+            <span class="service__title">Advanced</span>
             <span class="service__icon" aria-hidden="true">+</span>
           </button>
           <div class="service__content" hidden>
-            <p>The full Monarch effect: content creation + community management.</p>
+            <p>Experience the full Monarch Media Group effect. From content creation to complete community management, we elevate your Instagram into a powerful, high-impact platform that reflects your talent, creativity, and unique style.</p>
           </div>
         </article>
       </div>
     </section>
 
     <section class="about" id="about">
-      <div class="about__media">
-        <img src="https://images.squarespace-cdn.com/content/v1/690ce449a2c85f1dc254eff1/1726073791.499496-WMNTCMIYVYMOUPGEWESS/imgg-od3-6i23xxy7.png?format=1000w" alt="Professional camera" />
+      <div class="about__media" aria-hidden="true">
+        <div class="about__device">
+          <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1200&q=80" alt="" />
+        </div>
       </div>
       <div class="about__content">
         <h2>Get to <span>know us</span></h2>
@@ -98,6 +111,7 @@
     <section class="social" aria-labelledby="social-heading">
       <div class="social__intro">
         <h2 id="social-heading">Follow us on social</h2>
+        <p>Behind-the-chair inspo, content prompts, and the latest trends to keep your salon’s feed fresh.</p>
       </div>
       <div class="social__links">
         <a class="pill" href="https://www.tiktok.com/@monarchmediagroup">TikTok</a>
