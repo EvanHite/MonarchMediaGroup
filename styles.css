@@ -114,32 +114,55 @@ img {
 
 .hero {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  text-align: center;
-  padding: 0 2rem 4rem;
+  margin: 0 clamp(1.5rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(2rem, 5vw, 5rem);
+  border-radius: 36px;
+  overflow: hidden;
+  min-height: clamp(420px, 62vh, 560px);
+  display: flex;
+  align-items: flex-end;
+  color: #fdfaf2;
 }
 
-.hero__image {
-  width: 100%;
-  height: auto;
-  max-height: 520px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
-}
-
-.hero__text {
+.hero::before {
+  content: "";
   position: absolute;
-  bottom: 15%;
+  inset: 0;
+  background-image: url("https://images.squarespace-cdn.com/content/v1/690ce449a2c85f1dc254eff1/1726073790.775625-TEUOCVXPEKDBPDMNLALE/imgg-od3-5mikcgxq.png?format=1600w");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.02);
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(26, 22, 18, 0.72) 8%, rgba(26, 22, 18, 0.48) 40%, rgba(26, 22, 18, 0.15) 64%, rgba(26, 22, 18, 0));
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding: clamp(2.2rem, 4vw, 3rem);
+  border-radius: 28px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(245, 241, 230, 0.52));
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 25px 70px rgba(19, 16, 12, 0.4);
+  display: grid;
+  gap: 1.5rem;
   text-align: left;
-  max-width: 540px;
-  padding: 2rem 2.5rem;
-  border-radius: 20px;
-  background: rgba(245, 241, 230, 0.88);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  color: var(--color-foreground);
+  justify-items: flex-start;
+}
+
+.hero__content .button {
+  justify-self: flex-start;
 }
 
 .hero__eyebrow {
@@ -223,40 +246,73 @@ section + section {
 
 .services__list {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .service {
-  border-bottom: 1px solid rgba(31, 27, 21, 0.2);
-  padding-bottom: 1.5rem;
+  border: 1px solid rgba(31, 27, 21, 0.14);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 
-.service header {
+.service__trigger {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1.8rem;
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.45rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  appearance: none;
 }
 
-.service span {
-  font-size: 2rem;
+.service__trigger:focus-visible {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 3px;
+}
+
+.service__title {
+  text-align: left;
+}
+
+.service__icon {
+  font-family: var(--font-sans);
+  font-size: 1.8rem;
   line-height: 1;
+  transition: transform var(--transition), color var(--transition);
 }
 
-.service p {
-  font-family: var(--font-serif);
-  font-size: 1rem;
+.service__content {
+  padding: 0 1.8rem 1.8rem;
   color: var(--color-muted);
-  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  border-top: 1px solid rgba(31, 27, 21, 0.12);
+}
+
+.service__content[hidden] {
+  display: none;
 }
 
 .service--active {
-  border-color: var(--color-accent-strong);
+  border-color: rgba(216, 138, 96, 0.5);
+  background: rgba(255, 250, 243, 0.85);
 }
 
-.service--active span {
+.service--active .service__icon {
+  color: var(--color-accent-strong);
+  transform: rotate(180deg);
+}
+
+.service--active .service__trigger {
   color: var(--color-accent-strong);
 }
 
@@ -433,20 +489,18 @@ section + section {
   }
 
   .hero {
-    padding-bottom: 6rem;
+    margin: 0 1.5rem clamp(2.5rem, 7vw, 4rem);
+    padding: clamp(2.5rem, 8vw, 4rem) clamp(1.5rem, 6vw, 3.5rem);
+    align-items: center;
   }
 
-  .hero__text {
-    position: static;
-    margin-top: -4rem;
+  .hero__content {
+    justify-items: center;
     text-align: center;
+    gap: 1.25rem;
   }
 
-  .hero__text {
-    padding: 1.8rem 2rem;
-  }
-
-  .hero__text .button {
+  .hero__content .button {
     justify-self: center;
   }
 
@@ -464,6 +518,16 @@ section + section {
     padding: 4rem 1.5rem 3rem;
   }
 
+  .hero {
+    margin: 0 1rem clamp(2rem, 10vw, 3.5rem);
+    padding: clamp(2.2rem, 10vw, 3rem) clamp(1.25rem, 8vw, 2.5rem);
+    border-radius: 28px;
+  }
+
+  .hero__content {
+    padding: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
   section + section {
     margin-top: 4rem;
   }
@@ -471,10 +535,6 @@ section + section {
   .services,
   .contact {
     gap: 2rem;
-  }
-
-  .hero__text {
-    margin-top: -3rem;
   }
 
   .site-footer {
